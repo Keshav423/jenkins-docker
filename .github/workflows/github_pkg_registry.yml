@@ -8,7 +8,7 @@ jobs:
     - name: Publish to Registry
       uses: keshav423/jenkins-docker@master
       with:
-        name: docker.pkg.github.com/keshav423/jenkins-docker/publish-github-pkg-registry
+        name: docker.pkg.github.com/keshav423/jenkins-docker/dj-github-pkg-registry
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
