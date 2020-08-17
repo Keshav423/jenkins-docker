@@ -1,0 +1,14 @@
+name: Github Package registry
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: keshav423/jenkins-docker@master
+      with:
+        name: docker.pkg.github.com/keshav423/jenkins-docker/publish-github-pkg-registry
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
