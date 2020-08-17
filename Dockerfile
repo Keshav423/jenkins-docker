@@ -10,5 +10,5 @@ RUN set -x \
                /tmp/*
 
 USER jenkins
-COPY files/plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY files/requirements.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
