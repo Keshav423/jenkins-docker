@@ -1,14 +1,19 @@
 name: Github Package registry
-on: [push]
+on:
+  push:
+    branches: master
+    tags: 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    #- uses: actions/checkout@master
-    - name: Publish to Registry
-      uses: keshav423/jenkins-docker@master
-      with:
-        name: docker.pkg.github.com/keshav423/jenkins-docker/dj-github-pkg-registry
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        registry: docker.pkg.github.com
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: Docker Login
+        uses: crazy-max/ghaction-docker-login@v1.1.1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
